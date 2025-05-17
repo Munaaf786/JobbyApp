@@ -17,7 +17,7 @@
   width: 96%;
   padding: 12px;
   margin: 16px 0 0 12px;
-  max-width: 1110px;
+  max-width: 1200px;
 }
 
 @media (min-width: 767px) {
@@ -58,7 +58,7 @@
 }
 
 .find-jobs-btn {
-  height: 40px;
+  height: 44px;
   width: 120px;
   background-color: #6366f1;
   border: none;

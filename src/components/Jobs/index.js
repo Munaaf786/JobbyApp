@@ -65,8 +65,11 @@ class Jobs extends Component {
   getJobs = async () => {
     this.setState({jobsApiStatus: apiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
-    const {searchInput, employmentTypeCheckedList, activeSalaryRangeId} =
-      this.state
+    const {
+      searchInput,
+      employmentTypeCheckedList,
+      activeSalaryRangeId,
+    } = this.state
     const employmentTypes = employmentTypeCheckedList.join(',')
     const apiUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentTypes}&minimum_package=${activeSalaryRangeId}&search=${searchInput}`
     const options = {
@@ -200,6 +203,27 @@ class Jobs extends Component {
       </>
     )
   }
+
+  renderJobsFailureView = () => (
+    <div className="jobs-failure-view">
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+        alt="failure view"
+        className="failure-view-img"
+      />
+      <h1 className="failure-heading">Oops! Something Went Wrong</h1>
+      <p className="failure-desc">
+        We cannot seem to find the page you are looking for
+      </p>
+      <button
+        type="button"
+        className="failure-retry-btn"
+        onClick={this.getJobs}
+      >
+        Retry
+      </button>
+    </div>
+  )
 
   renderJobsBasedOnApiStatus = () => {
     const {jobsApiStatus} = this.state

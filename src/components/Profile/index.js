@@ -12,13 +12,15 @@ const apiStatusConstants = {
 
 const Profile = props => {
   const {profileDetails} = props
-  const {name, profileImageUrl, shortBio} = profileDetails
+  const {profileImageUrl} = profileDetails
 
   const renderProfileCard = () => (
     <div className="profile-card">
       <img src={profileImageUrl} alt="profile" className="profile-img" />
-      <h1 className="profile-name">{name}</h1>
-      <p className="short-bio">{shortBio}</p>
+      <h1 className="profile-name">Mohammed Munaaf</h1>
+      <p className="short-bio">
+        Full Stack Developer crafting modern web solutions.
+      </p>
     </div>
   )
 
@@ -35,7 +37,7 @@ const Profile = props => {
       <button
         type="button"
         className="profile-retry-btn"
-        onClick={() => getProfile}
+        onClick={() => getProfile()}
       >
         Retry
       </button>
